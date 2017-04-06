@@ -24,7 +24,7 @@ router.get('/new/:url(*)', function(req, res) {
         if(validator.isURL(url)){
             sites.insert({
   	            original_url: url,
-  	            short_url: "https://urlshortener3-frozenfroggie.c9users.io/" +  number
+  	            short_url: "https://mysterious-bayou-27669.herokuapp.com/" +  number
             }, function(err, result){
   	            assert.equal(null, err);  
   	            var obj = {
@@ -45,7 +45,7 @@ router.get('/:shortid(*)', function(req, res) {
       mongo.connect(url, function(err, db) {
         assert.equal(null, err);  
         var sites = db.collection('sites');
-        sites.findOne({"short_url": "https://urlshortener3-frozenfroggie.c9users.io/" + req.params.shortid }, {
+        sites.findOne({"short_url": "https://mysterious-bayou-27669.herokuapp.com/" + req.params.shortid }, {
                original_url: 1,
                _id: 0
         }, function(err, result) {
