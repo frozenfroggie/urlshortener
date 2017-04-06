@@ -20,7 +20,7 @@ router.get('/new/:url(*)', function(req, res) {
         var sites = db.collection('sites');
         var url = req.params.url;
         number = Math.floor((Math.random() * 10000) + 1);
-        console.log(validator.isURL(url));
+        console.log(validator.isURL(url, {require_protocol: true}));
         if(validator.isURL(url)){
             sites.insert({
   	            original_url: url,
