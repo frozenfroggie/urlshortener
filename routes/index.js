@@ -23,7 +23,7 @@ router.get('/new/:url(*)', function(req, res) {
         if(validator.isURL(url,{require_protocol: true})){
             sites.insert({
   	            original_url: url,
-  	            short_url: "https://url-shortener-microserv-fcc.herokuapp.com/" +  number
+  	            short_url: "https://get-short-url.herokuapp.com/" +  number
             }, function(err, result){
   	            assert.equal(null, err);  
   	            var obj = {
@@ -44,7 +44,7 @@ router.get('/:shortid(*)', function(req, res) {
       mongo.connect(url, function(err, db) {
         assert.equal(null, err);  
         var sites = db.collection('sites');
-        sites.findOne({"short_url": "https://url-shortener-microserv-fcc.herokuapp.com/" + req.params.shortid }, {
+        sites.findOne({"short_url": "https://get-short-url.herokuapp.com/" + req.params.shortid }, {
                original_url: 1,
                _id: 0
         }, function(err, result) {
