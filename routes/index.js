@@ -20,8 +20,7 @@ router.get('/new/:url(*)', function(req, res) {
         var sites = db.collection('sites');
         var url = req.params.url;
         number = Math.floor((Math.random() * 10000) + 1);
-        console.log(validator.isURL(url, {require_protocol: true}));
-        if(validator.isURL(url)){
+        if(validator.isURL(url,{require_protocol: true})){
             sites.insert({
   	            original_url: url,
   	            short_url: "https://mysterious-bayou-27669.herokuapp.com/" +  number
@@ -35,7 +34,7 @@ router.get('/new/:url(*)', function(req, res) {
                 db.close();
             });
         } else {
-            res.json({"error": "Wrong url format, make sure you have a real site."});
+            res.json({"error": "Wrong url format, make sure you have a valid protocol and real site."});
         }
     });
 });
