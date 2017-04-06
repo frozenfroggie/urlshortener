@@ -4,7 +4,7 @@ var mongo = require("mongodb").MongoClient;
 var assert = require("assert");
 var validator = require('validator');
  
-var url = 'mongodb://localhost:27017/myproject';
+var url = "mongodb://frozenfroggie:zaq1WSX@ds01316.mlab.com:1316/sites";
 var number; 
 
  
